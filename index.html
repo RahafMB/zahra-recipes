@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>خطوات صغيرة مع بذور الكتان لتُزهر أيامكِ عافية</title>
+<meta name="description" content="خطوات صغيرة مع بذور الكتان لتُزهر أيامكِ عافية">
+<meta name="theme-color" content="#E3CB34">
+<link rel="icon" href="assets/flower.png" type="image/png">
+<link rel="preload" as="image" href="assets/recipes.png">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+html,body{margin:0;padding:0;background:#E3CB34}
+img{display:block}
+#recipes{width:100%;max-width:760px;height:auto;margin:0 auto}
+#intro{display:none}
+.js #intro{position:fixed;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:#E3CB34;cursor:pointer;transition:opacity .9s ease .2s}
+#flower{width:min(62vw,340px);height:auto;animation:bloom .9s ease-out both;transition:opacity .6s ease,transform .9s ease}
+@keyframes bloom{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.js body:not(.open){overflow:hidden;height:100%}
+.js #stage{clip-path:circle(0 at 50% 50vh);transition:clip-path 1s cubic-bezier(.4,0,.2,1)}
+.js body.go #stage{clip-path:circle(160vmax at 50% 50vh)}
+.js body.go #flower{opacity:0;transform:scale(1.15)}
+.js body.go #intro{opacity:0}
+.js body.open #stage{clip-path:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="intro" aria-hidden="true"><img id="flower" src="assets/flower.png" alt="" width="581" height="397"></div>
+<main id="stage"><img id="recipes" src="assets/recipes.png" width="1240" height="1748" alt="خطوات صغيرة مع بذور الكتان لتُزهر أيامكِ عافية. ملعقة الصباح مع الزبادي: كوب زبادي طبيعي، ملعقة طعام من بذور الكتان المطحونة، ملعقة صغيرة عسل، قطع فاكهة موسمية. اخلطي بذور الكتان مع الزبادي مباشرةً قبل تناوله. كرات التمر والكتان: كوب معجون تمر، نصف كوب مكسرات مجروشة، ٣ ملاعق طعام بذور كتان مطحونة، رشة قرفة. اعجني المكونات معاً، شكّليها على هيئة كرات صغيرة، واحفظيها في الثلاجة."></main>
+<script>
+(function(){
+var d=document,b=d.body,p=d.getElementById('recipes'),i=d.getElementById('intro'),done=false,timer=false,ready=p.complete;
+function open(){if(done)return;done=true;b.classList.add('go');setTimeout(function(){b.classList.add('open');if(i&&i.parentNode)i.parentNode.removeChild(i)},1200)}
+function check(){if(timer&&ready)open()}
+if(!ready){p.addEventListener('load',function(){ready=true;check()});p.addEventListener('error',function(){ready=true;check()})}
+setTimeout(function(){timer=true;check()},2200);
+i.addEventListener('click',function(){timer=true;check()});
+setTimeout(function(){ready=true;timer=true;check()},6000);
+})();
+</script>
+</body>
+</html>
